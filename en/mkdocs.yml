@@ -513,6 +513,231 @@ nav:
           #    - Smart Proxy: learn/enterprise-integration-patterns/system-management/smart-proxy.md
           #    - Test Message: learn/enterprise-integration-patterns/system-management/test-message.md
           #    - Wire Tap: learn/enterprise-integration-patterns/system-management/wire-tap.md
+<<<<<<< HEAD
+=======
+  - Develop:
+      - Develop Integration Solutions: develop/intro-integration-development.md
+      #- API-led Integration: develop/api-led-integration.md
+      - WSO2 MI for VSCode:
+          - Micro Integrator for VSCode Overview:  develop/mi-for-vscode/mi-for-vscode-overview.md
+          - Install Micro Integrator for VSCode: develop/mi-for-vscode/install-wso2-mi-for-vscode.md
+          - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
+          - MI Copilot: develop/mi-for-vscode/mi-copilot.md
+      - WSO2 Integration Studio:
+          - Quick Tour - WSO2 Integration Studio: develop/wso2-integration-studio.md
+          - Install WSO2 Integration Studio: develop/installing-wso2-integration-studio.md
+          - Work with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
+          - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-wso2-integration-studio.md
+          - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
+      - Integration Projects:
+          - Create a Project: develop/create-integration-project.md
+          - Open a Project: develop/opening-projects.md
+      - Integration Artifacts:
+          - Integration Artifacts Overview: develop/creating-artifacts/creating-artifacts-overview.md
+          - Create Artifacts:
+              - Create a REST API: develop/creating-artifacts/creating-an-api.md
+              - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
+              - Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
+              - Create Scheduled Tasks: develop/creating-artifacts/creating-scheduled-task.md
+              - Create a Message Store: develop/creating-artifacts/creating-a-message-store.md
+              - Create a Message Processor: develop/creating-artifacts/creating-a-message-processor.md
+              - Create an Endpoint: develop/creating-artifacts/creating-endpoints.md
+              - Create an Endpoint Template: develop/creating-artifacts/creating-endpoint-templates.md
+              - Create a Sequence Template: develop/creating-artifacts/creating-sequence-templates.md
+              - Create a Reusable Sequence: develop/creating-artifacts/creating-reusable-sequences.md
+              - Create a Registry Resource: develop/creating-artifacts/creating-registry-resources.md
+              - Create Local Registry Entries: develop/creating-artifacts/registry/creating-local-registry-entries.md
+              - Create a Datasource: develop/creating-artifacts/data-services/creating-datasources.md
+              - Create a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
+              - Adding Connectors: develop/creating-artifacts/adding-connectors.md
+              #- Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
+              - Opening Artifacts: develop/opening-artifacts.md
+          - Create Extensions:
+              - Create a Custom Inbound Endpoint: develop/customizations/creating-custom-inbound-endpoint.md
+              - Create a Custom Mediator: develop/customizations/creating-custom-mediators.md
+              - Create a Synapse Handler: develop/customizations/creating-synapse-handlers.md
+              - Create a New Connector: develop/customizations/creating-new-connector.md
+              - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
+          - Securing Artifacts:
+              - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using-docker-secrets.md
+              - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using-k8s-secrets.md
+              - Apply Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
+              - Apply Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
+              - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
+      - Deploy Artifacts: develop/deploy-artifacts.md
+      - Test Integrations:
+          - Use a Remote Micro Integrator: develop/using-remote-micro-integrator.md
+          # - Hot Deploying Artifacts: develop/hot-deployment.md
+          - Create a Unit Test Suite: develop/creating-unit-test-suite.md
+          - Generate Docker Images: develop/generate-docker-image.md
+      - Debug Integrations:
+          - Mediation Debugging: develop/debugging-mediation.md
+          - Use Wire Logs: develop/using-wire-logs.md
+          - Monitor Composite Application-Level Logs: develop/monitoring-capp-level-logs.md
+          - Monitor Service-Level Logs: develop/monitoring-service-level-logs.md
+          - Monitor API-Level Logs: develop/monitoring-api-level-logs.md
+          - Endpoint Trace: develop/endpoint-trace-logs.md
+      - Advanced Development Tasks:
+          - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
+          - Inject Parameters: develop/injecting-parameters.md
+          - Change the Endpoint of a Deployed Service: develop/advanced-development/changing-the-endpoint-of-deployed-service.md
+          - Swagger Documents: develop/advanced-development/using-swagger-for-apis.md
+          - Extend Role-based Data Filtering: develop/advanced-development/extend-role-based-filtering-for-ds.md
+          - Dynamic User Authentication: develop/advanced-development/dynamic-user-authentication.md
+  - Install and Setup:
+      - Overview: install-and-setup/install-and-setup-overview.md
+      - Install:
+          - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
+          - Install the Micro Integrator (MI):
+              - Install MI: install-and-setup/install/installing-mi.md
+              - Run the MI Runtime: install-and-setup/install/running-the-mi.md
+              - Run the MI as a Windows Service: install-and-setup/install/installing-mi-as-a-windows-service.md
+              - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
+          - Install the Integration Control Plane:
+              - Install the Integration Control Plane: install-and-setup/install/installing-integration-control-plane.md
+              - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
+              - Run the Integration Control Plane as a Windows Service: install-and-setup/install/running-the-integration-control-plane-as-windows-service.md
+          - Installation Options: install-and-setup/install/installation-options.md
+      - Migrate: install-and-setup/upgrading-wso2-mi.md
+      - Setup:
+          - Update WSO2 Micro Integrator: install-and-setup/setup/updating-mi.md
+          - User Stores:
+              - User Stores in MI:
+                  - Configure a User Store in MI: install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi.md
+                  - Configure Databases:
+                      - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
+                      - MSSQL Database: install-and-setup/setup/databases/setting-up-mssql.md
+                      - Oracle Database: install-and-setup/setup/databases/setting-up-oracle.md
+                      - PostgreSQL Database: install-and-setup/setup/databases/setting-up-postgresql.md
+                      - IBM Database: install-and-setup/setup/databases/setting-up-ibm-db2.md
+                  - Configure Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores.md
+                  - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
+              - User Stores in ICP:
+                    - Configure a User Store in ICP: install-and-setup/setup/user-stores/setting-up-a-userstore-in-icp.md
+          - Security:
+              - Set up Keystores:
+                  - Create New Keystores: install-and-setup/setup/security/creating-keystores.md
+                  - Add SSL certificates to keystores: install-and-setup/setup/security/importing-ssl-certificate.md
+                  - Renew a CA-signed Certificate: install-and-setup/setup/security/renewing-ca-signed-certificate-in-keystore.md
+                  - Configure Keystores: install-and-setup/setup/security/configuring-keystores.md
+              - Comply with GDPR:
+                  - GDPR for the WSO2 Micro Integrator: install-and-setup/setup/security/gdpr-ei.md
+                  - About the Identity Anonymization Tool: install-and-setup/setup/security/about-forgetme-tool.md
+              - Use Secrets:
+                  - Encrypt Secrets Using WSO2 Secure Vault: install-and-setup/setup/security/encrypting-plain-text.md
+                  - Use Hashicorp Secrets: install-and-setup/setup/security/using-hashicorp-secrets.md
+                  - Use Symmetric Encryption: install-and-setup/setup/security/single-key-encryption.md
+              - Secure the Management API: install-and-setup/setup/security/securing-management-api.md
+          - Message Brokers:
+              - AMQP (RabbitMQ):
+                  - Deploy RabbitMQ: install-and-setup/setup/brokers/deploy-rabbitmq.md
+                  - Connect to RabbitMQ: install-and-setup/setup/brokers/configure-with-rabbitmq.md
+              - JMS:
+                  - Connect to ActiveMQ: install-and-setup/setup/brokers/configure-with-activemq.md
+                  - Connect to Apache Artemis: install-and-setup/setup/brokers/configure-with-apache-artemis.md
+                  - Connect to HornetQ: install-and-setup/setup/brokers/configure-with-hornetq.md
+                  - Connect to IBM Websphere App Server: install-and-setup/setup/brokers/configure-with-ibm-websphere-app-server.md
+                  - Connect to IBM WebSphere MQ: install-and-setup/setup/brokers/configure-with-ibm-webspheremq.md
+                  - Connect to JBoss MQ: install-and-setup/setup/brokers/configure-with-jbossmq.md
+                  - Connect to MSMQ: install-and-setup/setup/brokers/configure-with-msmq.md
+                  - Connect to Swift MQ: install-and-setup/setup/brokers/configure-with-swiftmq.md
+                  - Connect to TIBCO EMS: install-and-setup/setup/brokers/configure-with-tibco-ems.md
+                  - Connect to Weblogic: install-and-setup/setup/brokers/configure-with-weblogic.md
+                  - Connect to WSO2 MB: install-and-setup/setup/brokers/configure-with-wso2-mb.md
+                  - Connect to Multiple Brokers: install-and-setup/setup/brokers/configure-with-multiple-brokers.md
+              - Kafka: install-and-setup/setup/feature-configs/configuring-kafka.md
+              - Azure Service Bus: install-and-setup/setup/brokers/configure-with-azureservicebus.md
+          - Transports: install-and-setup/setup/transport-configurations/configuring-transports.md
+          - Multi-HTTPS Transport: install-and-setup/setup/transport-configurations/multi-https-transport.md
+          - Message Builders and Formatters: install-and-setup/setup/message-builders-formatters/message-builders-and-formatters.md
+          - Message Relay: install-and-setup/setup/message-builders-formatters/message-relay.md
+          - Manage Configurations across Environments: install-and-setup/setup/dynamic-server-configurations.md
+          - Load Balancer and Proxy Server:
+              - Load Balancing: install-and-setup/setup/deployment/setting-up-lb.md
+              - Configure a Proxy Server: install-and-setup/setup/configuring-proxy-servers.md
+              - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/enabling-ssl-tunneling-thru-proxy-server.md
+          - Time Stamp Conversion for RDBMS: install-and-setup/setup/feature-configs/configuring-timestamp-conversion-for-rdbms.md
+      - Deploy:
+          - Deploy the Micro Integrator:
+              - Configure a Micro Integrator Cluster: install-and-setup/setup/deployment/deploying-wso2-mi.md
+              - Deployment Synchronization: install-and-setup/setup/deployment/deployment-synchronization.md
+          - Deploy on Kubernetes:
+              - Micro Integrator on K8s:
+                  - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/deployment/kubernetes-deployment-patterns.md
+                  - Deploy the Micro Integrator on K8s: install-and-setup/setup/deployment/kubernetes-deployment.md
+              - Integrations on K8s:
+                  - Deploy Integrations Using the Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
+                  - Deploy Integrations Using Helm Resources: install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md
+                  # - Integration Deployment Samples:
+                      # - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
+                      # - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
+                      # - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
+          - Deployment Best Practices:
+              - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+              - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
+              - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
+              - Change the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
+              - Change the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+              - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
+              - Performance Tuning:
+                  - Tuning JVM Performance: install-and-setup/setup/performance-tuning/tuning-jvm-performance.md
+                  - Tuning Network and OS Performance: install-and-setup/setup/performance-tuning/network-os-performance.md
+                  - Tuning JDBC Configurations: install-and-setup/setup/performance-tuning/jdbc-tuning.md
+                  - Tuning the HTTP Transport: install-and-setup/setup/performance-tuning/http-transport-tuning.md
+                  - Tuning the JMS Transport: install-and-setup/setup/performance-tuning/jms-transport-tuning.md
+                  - Tuning the VFS Transport: install-and-setup/setup/performance-tuning/tuning-the-vfs-transport.md
+                  - Tuning the RabbitMQ Transport: install-and-setup/setup/performance-tuning/rabbitmq-transport-tuning.md
+                  - Tuning the Inbound Endpoints: install-and-setup/setup/performance-tuning/tuning-inbound-endpoints.md
+      - CI/CD:
+          - CI/CD for Integrations - Overview: install-and-setup/setup/deployment/integration-cicd-overview.md
+          - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/deployment/mi-cicd-vm.md
+          # - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
+      - Reference:
+          - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
+          - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
+          - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
+          - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
+  - Observe and Manage:
+      - Overview: observe-and-manage/observe-overview.md
+      - Observability:
+          - Grafana based Observability:
+              - Overview: observe-and-manage/cloud-native-observability-overview.md
+              - Getting Started Guide - VM Deployment: observe-and-manage/setting-up-cloud-native-observability-on-a-vm.md
+              - Getting Started Guide - K8s Deployment: observe-and-manage/setting-up-cloud-native-observability-in-kubernetes.md
+              - View Statistics: observe-and-manage/viewing-cloud-native-observability-statistics.md
+          - Basic Observability:
+              - Logs:
+                  - Configure Logs: observe-and-manage/classic-observability-logs/configuring-log4j2-properties.md
+                  - Enable Logs for a Component: observe-and-manage/classic-observability-logs/enabling-logs-for-a-component.md
+                  - Monitor Logs: observe-and-manage/classic-observability-logs/monitoring-logs.md
+                  - Monitor Correlation Logs: observe-and-manage/classic-observability-logs/monitoring-correlation-logs.md
+                  - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
+              - Traces:
+                  - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
+              - Metrics:
+                  - JMX Monitoring with JMX: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
+                  - SNMP Monitoring with SNMO: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
+              - TCP Messages:
+                  - Starting TCPMon: observe-and-manage/classic-observability-tcp/starting-tcp-mon.md
+                  - Message Monitoring with TCPMon: observe-and-manage/classic-observability-tcp/message-monitoring-with-tcpmon.md
+                  - Other Usages of TCPMon: observe-and-manage/classic-observability-tcp/other-usages-of-tcpmon.md
+      - Analytics:
+          - ELK Based Analytics:
+              - Setup: mi-analytics/mi-elk-installation-guide.md
+              - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
+      - Administer:
+          - Administer Overview: administer/admin-overview.md
+          - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
+          - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
+          - Manage Micro Integrator:
+              - Runtime:
+                  - Integration Control Plane: observe-and-manage/working-with-integration-control-plane.md
+                  - Managing Integrations with MI CLI: observe-and-manage/managing-integrations-with-micli.md
+                  - Management API: observe-and-manage/working-with-management-api.md
+              - Logs:
+                  - Manage Log Growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+                  - Masking Sensitive Information in Logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
+>>>>>>> 6bd49035acc0d9d87c8228f39a7a57add7d8bfb3
   - References:
       - Product Configurations:
           - MI Configuration Catalog: reference/config-catalog-mi.md
@@ -985,6 +1210,7 @@ plugins:
         - 'includes/*'
   - redirects:
       redirect_maps:
+<<<<<<< HEAD
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/development-kickstart/'
               'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/create-integration-project'
@@ -1035,6 +1261,58 @@ plugins:
               'reference/connectors/documentum/documentum-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'reference/connectors/documentum/documentum-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/salesforce-connectors/sf-access-token-generation'
+=======
+              'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/mediation-sequences'
+              'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.3.0/get-started/development-kickstart/'
+              'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
+              'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
+              'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/managing-integrations-with-micli/'
+              'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/'
+              'develop/importing-projects.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/opening-projects/'
+              'develop/importing-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/opening-artifacts/'
+              'learn/integration-tutorials/develop-an-integration-with-a-managed-api.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'develop/api-led-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
+              'learn/integration-tutorials/sap-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/examples/protocol-switching/switching-from-fix-to-amqp.md': 'https://mi.docs.wso2.com/en/4.3.0/learn/examples/protocol-switching/switching-from-fix-to-jms'
+              'install-and-setup/install/installing-mi-dashboard.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install/installing-integration-control-plane'
+              'reference/config-catalog-mi-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/config-catalog-integration-control-plane/'
+              'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/exporting-artifacts/'
+              'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-docker-image'
+              'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'develop/exporting-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-and-export-the-carbon-application'
+              'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
+              'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/using-remote-micro-integrator'
+              'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.3.0/mi-analytics/mi-elk-installation-guide/'
+              'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/4.3.0/mi-analytics/mi-elk-installation-guide/'
+              'install-and-setup/setup/deployment/mi-cicd-k8s.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/integration-cicd-overview'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'reference/mediators/property-reference/accessing-properties-with-xpath.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/synapse-properties/expressions/#xpath-expressions'
+              'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference/'
+              'reference/connectors/amazonsqs-connector/amazonsqs-connector-example/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/'
+              'reference/connectors/develop-connectors.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/customizations/creating-new-connector/'
+              'reference/mediators/data-mapper-json-schema-specification.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/mediators/data-mapper-mediator'
+              'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
+              'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/working-with-integration-control-plane/'
+              'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install-and-setup-overview/'
+              'get-started/development-kickstart.md' : 'https://mi.docs.wso2.com/en/4.3.0/get-started/quick-start-guide/'
+              'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
+              'learn/examples/file-processing/vfs-transport-examples.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/integration-tutorials/file-processing/'
+              'learn/examples/rabbitmq-examples/store-forward-rabbitmq.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/integration-tutorials/storing-and-forwarding-messages/'
+              'learn/examples/working-with-transactions.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/connectors-overview'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/connectors-overview'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/connectors-overview'
+              'reference/connectors/documentum/documentum-overview.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/connectors-overview'
+              'reference/connectors/documentum/documentum-example.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/connectors-overview'
+              'reference/connectors/documentum/documentum-reference.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/connectors-overview'
+              'install-and-setup/setup/reference/product-compatibility.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install/installation-prerequisites/'
+              'learn/integration-tutorials/using-the-gmail-connector.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/integration-tutorials/send-email-from-integration-service'
+              'includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/salesforce-connectors/sf-access-token-generation'
+>>>>>>> 6bd49035acc0d9d87c8228f39a7a57add7d8bfb3
 
   # Extra
 extra_css:

@@ -42,7 +42,11 @@ The health check API serves at:
     ```
     
     Sample Request: 
+<<<<<<< HEAD
     ```
+=======
+    ```    
+>>>>>>> 6bd49035acc0d9d87c8228f39a7a57add7d8bfb3
     curl GET 'https://localhost:9164/liveness' -k
     ```
 
