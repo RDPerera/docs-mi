@@ -1,3 +1,14 @@
+---
+tags:
+  - http
+  - get
+  - post
+  - put
+  - patch
+  - head
+  - options
+---
+
 # HTTP Connector Overview
 
 HTTP (Hypertext Transfer Protocol) is a foundational protocol used for transferring data enabling communication between clients and servers.
@@ -16,9 +27,8 @@ To see the HTTP Connector, navigate to the [connector store](https://store.wso2.
 
 ## HTTP Connector documentation
 
-* **[HTTP Connector Example]({{base_path}}/reference/connectors/http-connector-example/)**: This documentation provides an example using the HTTP Connector to send HTTP requests.
-* **[HTTP Connector Reference]({{base_path}}/reference/connectors/http-connector-configuration/)**: This documentation provides a reference guide for the HTTP Connector.
-
+* **[HTTP Connector Example]({{base_path}}/reference/connectors/http-connector/http-connector-example/)**: This documentation provides an example using the HTTP Connector to send HTTP requests.
+* **[HTTP Connector Reference]({{base_path}}/reference/connectors/http-connector/http-connector-configuration/)**: This documentation provides a reference guide for the HTTP Connector.
 ## How to contribute
 
 As an open-source project, WSO2 extensions welcome contributions from the community.

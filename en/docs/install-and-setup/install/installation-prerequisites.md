@@ -1,4 +1,4 @@
-# Installation Prerequisites
+# WSO2 Micro Integrator Installation Prerequisites
 
 Prior to installing WSO2 Micro Integrator, make sure that the appropriate prerequisites are fulfilled.
 
@@ -55,7 +55,7 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
 
 ## Tested environments
 
-The details of the tested environments for the WSO2 Micro Integrator (MI) 4.3.0 runtimes are given below.
+The details of the tested environments for the WSO2 Micro Integrator (MI) 4.4.0 runtimes are given below.
 
 ### Tested operating systems
 
@@ -63,12 +63,12 @@ The Micro Integrator runtime is tested with the following operating systems:
 
 | Operating System         | Versions   |
 |--------------------------|------------|
-| Windows                  | 2019       |
-| Ubuntu                   | 22.04      |
-| Red Hat Enterprise Linux | 7.4, 8.2   |
-| Rocky Linux              | 8.10       |
-| MacOS                    | 10.15      |
-| SUSE Linux               | 12         |
+| Windows                  | 2025       |
+| Ubuntu                   | 24.04      |
+| Red Hat Enterprise Linux | 9   |
+| Rocky Linux              | 9.5       |
+| MacOS                    | 14.6      |
+| SUSE Linux               | 15         |
 
 ### Tested JDKs
 
@@ -76,10 +76,10 @@ The Micro Integrator runtime is tested with the following JDKs:
 
 | JDK         |Versions|
 |-------------|--------|
-| CorrettoJDK | 11, 17 |
-| AdoptOpenJDK | 11, 17 |
-| OpenJDK     | 11, 17 |
-| Oracle JDK  | 11, 17 |
+| CorrettoJDK | 11, 17, 21 |
+| AdoptOpenJDK | 11, 17, 21 |
+| OpenJDK     | 11, 17, 21 |
+| Oracle JDK  | 11, 17, 21 |
 
 ### Tested DBMSs
 
@@ -87,9 +87,13 @@ The Micro Integrator runtime is tested with the following databases:
 
 | DBMS                 | Versions           |
 |----------------------|--------------------|
-| MySQL                | 5.7, 8             |
+| MySQL                | 9             |
 | Oracle               | 12c release 2, 19c |
-| Microsoft SQL Server | 2019               |
-| PostgreSQL           | 12.2, 13.2         |
+| Microsoft SQL Server | 2022               |
+| PostgreSQL           | 17.2         |
 | MariaDB              | 10.5               |
 | DB2                  | 11.5               |
+
+### ARM compatibility
+
+WSO2 Micro Integrator is compatible with ARM processors. It can run on ARM-based systems, such as those with Apple Silicon or ARM-based Linux distributions.
