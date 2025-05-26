@@ -75,7 +75,7 @@ appending a context to the target URL in RESTful invocations.
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</p></td>
+<td><p>When set to <code>true</code>, this property sends a 202 HTTP response to the client when the current thread of execution ends. This ensures that the client does not continue waiting for a response.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
@@ -169,7 +169,7 @@ appending a context to the target URL in RESTful invocations.
 <li>check if an outgoing request/response generated from the mediation flow has an entity body or not</li>
 </ul>
 <b>Note</b>:
-<p>If using the <a href="{{base_path}}/reference/mediators/payloadfactory-mediator">PayloadFactory mediator</a>, this property does not need to be manually set since it is done automatically by the mediator.</p>
+<p>If using the <a href="{{base_path}}/reference/mediators/payloadfactory-mediator">Payload mediator</a>, this property does not need to be manually set since it is done automatically by the mediator.</p>
 </div></td>
 </tr>
 <tr class="even">

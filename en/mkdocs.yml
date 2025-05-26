@@ -41,6 +41,8 @@ theme:
     - navigation.tabs.sticky
     - content.action.edit
     - content.action.view
+    - navigation.indexes
+    - content.code.annotate
   #highlightjs: true
   feature:
     tabs: true
@@ -73,7 +75,17 @@ nav:
   - Get Started:
       - Introduction: get-started/introduction.md
       - Key Concepts: get-started/key-concepts.md
-      - Quick Start Guide: get-started/quick-start-guide.md
+      - Build your first Integration:
+          - get-started/build-first-integration/index.md
+          - Develop an Integration API: get-started/build-first-integration/first-integration-api-service.md
+          - Route and Transform messages: get-started/build-first-integration/first-integration-route-and-transform.md
+          - Connect to SaaS or B2B Systems: get-started/build-first-integration/first-integration-connect-saas.md
+      - Build your first AI Integration:
+          - get-started/build-first-ai-integration/index.md
+          - Build an AI Chatbot: get-started/build-first-ai-integration/first-integration-ai-chatbot.md
+          - Build a Knowledge Base: get-started/build-first-ai-integration/first-integration-knowledge-base.md
+          - Connect a Knowledge Base to the Chatbot: get-started/build-first-ai-integration/first-integration-rag-chat.md
+          - Create an AI Agent: get-started/build-first-ai-integration/first-integration-ai-agent.md
       - How-to Guides:
           - Generate integrations using AI: get-started/how-to-guides/ai-code-generation.md
           - Data Mapping using AI: get-started/how-to-guides/ai-data-mapping.md
@@ -159,7 +171,8 @@ nav:
               - Deployment Synchronization: install-and-setup/setup/deployment/deployment-synchronization.md
           - Deploy on Kubernetes:
               - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/deployment/kubernetes-deployment-patterns.md
-              - Deploy Integrations Using Helm Resources: install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md
+              - Configure Helm charts: install-and-setup/setup/deployment/configuring-helm-charts.md
+              - Example: install-and-setup/setup/deployment/sample-k8s-deployment.md
           - Deployment Best Practices:
               - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
               - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -179,7 +192,7 @@ nav:
       - CI/CD:
           - CI/CD for Integrations - Overview: install-and-setup/setup/deployment/integration-cicd-overview.md
           - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/deployment/mi-cicd-vm.md
-          # - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
+          - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
       - Reference:
           - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
@@ -221,6 +234,9 @@ nav:
               - Create a Synapse Handler: develop/customizations/creating-synapse-handlers.md
               - Create a New Connector: develop/customizations/creating-new-connector.md
               - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
+              - Create a Ballerina Module:
+                - Overview: develop/customizations/ballerina-module/overview.md
+                - Examples: develop/customizations/ballerina-module/example.md
           - Securing Artifacts:
               - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using-docker-secrets.md
               - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using-k8s-secrets.md
@@ -331,6 +347,7 @@ nav:
             - How to Periodically Execute Integration Processes: learn/integration-tutorials/using-scheduled-tasks.md
             - How to Schedule Tasks using a Simple Trigger: learn/examples/scheduled-tasks/task-scheduling-simple-trigger.md
             - How to Inject Messages to a RESTful Endpoint: learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md
+      - Event-driven Integrations: get-started/event-driven-integrations.md
       - REST APIs:
             - How to Use a Simple REST API: learn/examples/rest-api-examples/introduction-rest-api.md
             - How to Set Query Parameters on Outgoing Messages: learn/examples/rest-api-examples/setting-query-params-outgoing-messages.md
@@ -356,7 +373,6 @@ nav:
             - How to Use an HL7 Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-hl7-protocol-auto-ack.md
             - How to Use an MQTT Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-mqtt-protocol.md
             - How to Use a RabbitMQ Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-rabbitmq-protocol.md
-            - How to Use a Kafka Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka.md
             - How to Use a Secured WebSocket Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket.md
             - How to Use an Inbound Endpoints with Registry: learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry.md
       - Local Entries:
@@ -521,6 +537,9 @@ nav:
           - When to Use Connectors: reference/connectors/why-connectors.md
           - Connector Usage Guidelines: reference/connectors/connector-usage.md
           - Generate a Connector: reference/connectors/generate-connectors.md
+          - AI Module:
+              - AI Module Overview: reference/connectors/ai-module/ai-module-overview.md
+              - AI Module Reference: reference/connectors/ai-module/ai-module-reference.md
           - Amazon DynamoDB Connector:
               - Amazon DynamoDB Overview: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-overview.md
               - Set up Amazon DynamoDB: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration.md
@@ -628,8 +647,12 @@ nav:
               - CSV Module Reference: reference/connectors/csv-module/csv-module-config.md
           - Email Connector:
               - Email Connector Overview: reference/connectors/email-connector/email-connector-overview.md
-              - Email Connector Example: reference/connectors/email-connector/email-connector-example.md
-              - Email Connector Reference: reference/connectors/email-connector/email-connector-config.md
+              - 2.x:
+                  - Email Connector Example: reference/connectors/email-connector/email-connector-example.md
+                  - Email Connector Reference: reference/connectors/email-connector/email-connector-config.md
+              - 1.x:
+                  - Email Connector Example: reference/connectors/email-connector/1.x/email-connector-1.x-example.md
+                  - Email Connector Reference: reference/connectors/email-connector/1.x/email-connector-1.x-config.md
           - HTTP Connector:
               - HTTP Connector Overview: reference/connectors/http-connector/http-connector-overview.md
               - HTTP Connector Example: reference/connectors/http-connector/http-connector-example.md
@@ -658,9 +681,13 @@ nav:
                   - File Connector Reference: reference/connectors/file-connector/3.x/file-connector-3.x-config.md
           - Gmail Connector:
               - Gmail Overview: reference/connectors/gmail-connector/gmail-connector-overview.md
-              - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
-              - Gmail Reference: reference/connectors/gmail-connector/gmail-connector-config.md
-              - Gmail Configuration: reference/connectors/gmail-connector/configuring-gmail-api.md
+              - Set up Gmail API: reference/connectors/gmail-connector/configuring-gmail-api.md
+              - 4.x:
+                  - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
+                  - Gmail Reference: reference/connectors/gmail-connector/gmail-connector-config.md
+              - 3.x:
+                  - Gmail Example: reference/connectors/gmail-connector/3.x/gmail-connector-3.x-example.md
+                  - Gmail Reference: reference/connectors/gmail-connector/3.x/gmail-connector-3.x-config.md
           - Google Ads Connector:
               - Google Ads Overview: reference/connectors/google-ads-connector/google-ads-overview.md
               - Google Ads Reference: reference/connectors/google-ads-connector/google-ads-configuration.md
@@ -676,9 +703,13 @@ nav:
               - Google PubSub Reference: reference/connectors/google-pubsub-connector/googlepubsub-connector-reference.md
           - Google Spreadsheet Connector:
               - Google Spreadsheet Overview: reference/connectors/google-spreadsheet-connector/google-spreadsheet-overview.md
-              - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
               - Get Credentials for Google Spreadsheet: reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet.md
-              - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
+              - 4.x:
+                    - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
+                    - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
+              - 3.x:
+                    - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-example.md
+                    - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-config.md
           - ISO8583 Connector:
               - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md
               - Set up ISO8583: reference/connectors/iso8583-connector/iso8583-connector-configuration.md
@@ -699,6 +730,11 @@ nav:
               - Set up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
               - LDAP Example: reference/connectors/ldap-connector/ldap-connector-example.md
               - LDAP Reference: reference/connectors/ldap-connector/ldap-server-configuration.md
+          - Microsoft Azure Data Lake  Connector:
+             - Microsoft Azure Data Lake Storage Connector Overview: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-overview.md
+             - Set up Microsoft Azure Data Lake Storage: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration.md
+             - Microsoft Azure Data Lake Storage Connector Example: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-examples.md
+             - Microsoft Azure Data Lake Storage Connector Reference: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-reference.md
           - Microsoft Azure Storage Connector:
               - Microsoft Azure Storage Overview: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-overview.md
               - Set up Microsoft Azure Storage: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration.md
@@ -740,6 +776,11 @@ nav:
               - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/sf-soap-connector-config.md
               - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/sf-soap-connector-example.md
               - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
+          - Salesforce Pub/Sub Connector:
+              - Salesforce Pub/Sub Overview: reference/connectors/salesforce-pubsub-connector/sf-pubsub-overview.md
+              - Set up the Salesforce Pub/Sub Connector: reference/connectors/salesforce-pubsub-connector/sf-pubsub-configuration.md
+              - Salesforce Pub/Sub Example: reference/connectors/salesforce-pubsub-connector/sf-pubsub-example.md
+              - Salesforce Pub/Sub Reference: reference/connectors/salesforce-pubsub-connector/sf-pubsub-connector-reference.md
           - ServiceNow Connector:
               - ServiceNow Overview: reference/connectors/servicenow-connector/servicenow-overview.md
               - Set up Servicenow: reference/connectors/servicenow-connector/settingup-servicenow-instance.md
@@ -774,7 +815,7 @@ nav:
               - ISO8583 Inbound Endpoint Example: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example.md
               - ISO8583 Inbound Endpoint Reference: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config.md
           - Kafka Inbound Endpoint:
-              - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md
+              - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example
               - Kafka Inbound Endpoint Reference: reference/connectors/kafka-connector/kafka-inbound-endpoint-config.md
           - Salesforce Inbound Endpoint:
               - Salesforce Inbound Endpoint Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md
@@ -902,6 +943,8 @@ nav:
           - Configure XSLT Mediation with Xalan: reference/troubleshooting/configuring-xslt-mediation-with-xalan.md
           - Troubleshooting JMS: reference/troubleshooting/troubleshooting-jms.md
           - Utilizing Runtime Diagnostic Tool: reference/troubleshooting/utilizing-runtime-diagnostic-tool.md
+      - Compliance:
+          - Accessibility Compliance: reference/compliance/accessibility-compliance.md
 
   - Observe and Manage:
       - Overview: observe-and-manage/observe-overview.md
@@ -988,6 +1031,8 @@ plugins:
         - 'includes/*'
   - redirects:
       redirect_maps:
+              'install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/sample-k8s-deployment/'
+              'get-started/quick-start-guide.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/build-first-integration'
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/development-kickstart/'
               'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/creating-artifacts/data-services/creating-data-services/'
@@ -1007,7 +1052,6 @@ plugins:
               'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/using-remote-micro-integrator'
               'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.4.0/mi-analytics/mi-elk-installation-guide/'
               'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/4.4.0/mi-analytics/mi-elk-installation-guide/'
-              'install-and-setup/setup/deployment/mi-cicd-k8s.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/integration-cicd-overview'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
@@ -1032,6 +1076,8 @@ plugins:
               'install-and-setup/setup/deployment-best-practices/performance-tests-results.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment-best-practices/performance-test-results-mi/'
               'develop/integration-development-kickstart.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/quick-start-guide/'
               'learn/examples/routing-examples/routing-based-on-payloads.md': 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/routing-requests-based-on-message-content/'
+              'learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/event-driven-integrations/'
+              'reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/get-started/event-driven-integrations/'
   # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply
