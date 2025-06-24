@@ -1,9 +1,10 @@
 # Jira Connector Reference
 
-The following operations allow you to work with the Jira Connector. Click an operation name to see parameter details and samples on how to use it.
+### Connection configuration
 
-??? note "init"
-    The init operation configures the connection parameters used to establish a connection to the Jira server.
+The connection is used to establish a connection to the Jira server. Jira APIs support basic authentication using a username and API token.
+
+??? note "JIRA Connection"
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -12,28 +13,28 @@ The following operations allow you to work with the Jira Connector. Click an ope
         </tr>
         <tr>
             <td>username</td>
-            <td>The username of the user.</td>
+            <td>The username of the Jira account.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>password</td>
-            <td>The password of the user.</td>
+            <td>The API token associated with the Jira account.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>uri</td>
-            <td>The instance URI of Jira account.</td>
+            <td>The base URI of the Jira instance.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>blocking</td>
-            <td>This property helps the connector perform blocking invocations to Jira.</td>
+            <td>Specifies whether the connector should use blocking mode when invoking Jira APIs.</td>
             <td>Yes</td>
         </tr>
     </table>
 
-    **Sample configuration**
-
+    **Sample Configuration**
+    
     ```xml
     <jira.init>
         <username>{$ctx:username}</username>
@@ -42,21 +43,22 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <blocking>{$ctx:blocking}</blocking>
     </jira.init>
     ```
-
-    **Sample request**
-
-    The following sample REST request can be handled by the init operation.
-
+    
+    **Sample Request**
+    
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
-        "blocking":"false"
+        "username": "admin",
+        "password": "jira@jaffna",
+        "uri": "http://localhost:8080",
+        "blocking": "false"
     }
     ```
-    
-    
+
+The following operations allow you to work with the Jira Connector. Click an operation name to see parameter details and samples on how to use it.
+
+### Dashboard management
+
 ??? note "getDashboards"
     This operation returns a JSON representation of the list of dashboards, including their names, IDs, and more.
     <table>
@@ -68,17 +70,17 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>maxResults</td>
             <td>The maximum number of dashboards to return, up to 1000 (default is 50).</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>startAt</td>
             <td>The index of the first dashboard to return (0-based). Must be 0 or a multiple of maxResults.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>filter</td>
             <td>An optional filter that is applied to the list of dashboards.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -98,9 +100,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
 
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "maxResults":"50",
         "filter":"favourite"
     }
@@ -155,9 +154,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     The following is a sample REST/JSON request that can be handled by the `getDashboardById` operation.
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "id":"10100"
     }
     ```
@@ -174,6 +170,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         "view": "http://localhost:8080/secure/Dashboard.jspa?selectPageId=10100"
     }
     ```
+### Filter management
 
 ??? note "getFilterById"
 
@@ -192,7 +189,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>expand</td>
             <td>The parameters to expand.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -211,9 +208,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "filterId":"10100"
     }
     ``` 
@@ -275,7 +269,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>expand</td>
             <td>The parameters to expand.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -293,9 +287,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
 
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080"
+        "expand":"0"
     }
     ```
 
@@ -362,7 +354,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>description</td>
             <td>The description of the filter.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>jqlType</td>
@@ -372,7 +364,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>favourite</td>
             <td>Specify whether the filter is a favourite.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -393,9 +385,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "filterName":"All Open Bugs",
         "description":"Lists all open bugs",
         "jqlType":"Bug and resolution is empty",
@@ -470,7 +459,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>description</td>
             <td>The description of the filter.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>jqlType</td>
@@ -480,12 +469,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>favourite</td>
             <td>Specify whether the filter is a favourite.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>expand</td>
             <td>The parameters to expand.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -506,9 +495,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-    "username":"admin",
-    "password":"jira@jaffna",
-    "uri":"http://localhost:8080",
     "filterName":"All  Bugs",
     "description":"Lists all bugs",
     "jqlType":"Bug and resolution is empty",
@@ -592,9 +578,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-    "username":"admin",
-    "password":"jira@jaffna",
-    "uri":"https://testcon.atlassian.net",
     "filterId":"10101"
     }
     ```
@@ -603,6 +586,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
 
     For the successful response, you will get 204 No Content status code without any body.
 
+### Group management
 
 ??? note "getGroup"
     This operation returns a JSON representation of the list of groups, including their names, IDs, and more.
@@ -620,7 +604,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>expand</td>
             <td>The parameters to expand.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -639,11 +623,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
-        "groupName":"jira-administrators",
-        "expand":"users"
+        "groupName":"jira-administrators"
     }
     ```
 
@@ -676,17 +656,17 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>query</td>
             <td>The query to match groups against.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>exclude</td>
             <td>Exclude from the result.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>maxResults</td>
             <td>The max results to return.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -706,9 +686,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-    "uri": "http://localhost:8080",
-    "username": "admin",
-    "password": "1qaz2wsx@",
     "query": "administrators",
     "exclude": "system-administrators",
     "maxResults": "2"
@@ -755,17 +732,17 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>query</td>
             <td>A string used to search. This can be username, name, or email address.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>maxResults</td>
             <td>The maximum number of users to return.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>isShowAvatar</td>
             <td>The boolean value to show avatar.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -785,9 +762,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-    "uri": "http://localhost:8080",
-    "username": "admin",
-    "password": "1qaz2wsx@",
     "query": "admin",
     "maxResults": "1",
     "isShowAvatar": "true"
@@ -830,6 +804,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     }
     ```
 
+### Issue management
+
 ??? note "getIssue"
     To get an existing issue, use `getIssue` and specify the issue ID.
     <table>
@@ -846,12 +822,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>fields</td>
             <td>The list of fields to return for the issue.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>expand</td>
             <td>The parameters to expand.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -871,9 +847,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issueIdOrKey":"EX-1"
     }
     ```
@@ -955,11 +928,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
             <th>Required</th>
         </tr>
         <tr>
-            <td>projectKey</td>
-            <td>The key (unique identifier) of the project in which you are creating the issue.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
             <td>issueFields</td>
             <td>Fields of the issue.</td>
             <td>Yes</td>
@@ -970,7 +938,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.createIssue>
-        <projectKey>{$ctx:projectKey}</projectKey>
         <issueFields>{$ctx:issueFields}</issueFields>
     </jira.createIssue>
     ```
@@ -981,19 +948,14 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
-        "issueFields":{
-            "fields": {
-                "project":{
-                    "key": "TEST1"
-                },
-                "summary": "Hello",
-                "description": "test issue",
-                "issuetype": {
-                    "id": "10000"
-                }
+        "fields": {
+            "project":{
+                "key": "TEST1"
+            },
+            "summary": "Hello",
+            "description": "test issue",
+            "issuetype": {
+                "id": "10000"
             }
         }
     }
@@ -1046,9 +1008,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issueIdOrKey":"TEST-6",
         "issueFields":{
             "update":{
@@ -1109,9 +1068,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "name":"admin",
         "issueIdOrKey":"TEST-2"
     }
@@ -1137,7 +1093,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>expand</td>
             <td>The parameters to expand.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -1156,9 +1112,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issueIdOrKey":"TEST-2"
     }
     ```
@@ -1246,9 +1199,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issueIdOrKey":"TEST-2"
         "issueFields":{
         "update": {
@@ -1287,7 +1237,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>expand</td>
             <td>The parameters to expand.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -1306,9 +1256,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issueIdOrKey":"TEST-2"
     }
     ```
@@ -1371,12 +1318,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>visibleRole</td>
             <td>User role that can view the comment.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>expand</td>
             <td>The parameters to expand.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -1397,9 +1344,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issueIdOrKey":"TEST-1",
         "comment":"Waiting to hear back from the legal department.",
         "visibleRole":"Administrators"
@@ -1462,12 +1406,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>visibleRole</td>
             <td>A String containing the visible role.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>expand</td>
             <td>The parameters to expand. The 'renderedBody' optional parameter provides the body rendered in HTML.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -1488,9 +1432,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issueIdOrKey":"TEST-1",
         "commentId":"10000",
         "comment":"is this a bug?",
@@ -1563,9 +1504,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issueIdOrKey":"TEST-2",
         "commentId":"10000"
     }
@@ -1639,18 +1577,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     ```xml
     <jira.getIssuePriorities/>
     ```
-    
-    **Sample request**
-
-    The following is a sample request that can be handled by the `getIssuePriorities` operation.
-    
-    ```json
-    {
-    "username":"admin",
-    "password":"jira@jaffna",
-    "uri":"http://localhost:8080"
-    }
-    ```
 
     **Sample response**
 
@@ -1697,9 +1623,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issuePriorityId":"3"
     }
     ```
@@ -1725,18 +1648,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getIssueTypes/>
-    ```
-    
-    **Sample request**
-
-    The following is a sample request that can be handled by the `getIssueTypes` operation.
-    
-    ```json
-    {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080"
-    }
     ```
 
     **Sample response**
@@ -1785,9 +1696,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issueTypeId":"3"
     }
     ```
@@ -1836,9 +1744,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "issueIdOrKey":"TEST-1"
     }
     ```
@@ -1898,9 +1803,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri": "http://localhost:8080",
-        "username": "admin",
-        "password": "1qaz2wsx@",
         "issueUpdates": [
             {
                 "update": {},
@@ -1971,9 +1873,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri": "https://connector.atlassian.net",
-        "username": "admin",
-        "password": "1qaz2wsx@",
         "name": "vrajenthiran",
         "issueIdOrKey": "WSO2CON-4"
     }
@@ -1999,12 +1898,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>expand</td>
             <td>The parameters to expand. The optional 'renderedBody' flag provides the body rendered in HTML.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>issueIdOrKey</td>
             <td>A string containing the issue ID or key to which the comment belongs.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -2024,9 +1923,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri": "http://localhost:8080",
-        "username": "admin",
-        "password": "1qaz2wsx@",
         "commentId" : "10000",
         "issueIdOrKey":"TESTPM1-3"
     }
@@ -2166,9 +2062,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri": "http://localhost:8080",
-        "username": "admin",
-        "password": "1qaz2wsx@",
         "issueIdOrKey" : "TESTPM1-3",
         "subject" : "notification subject",
         "textBody":"The text body",
@@ -2238,9 +2131,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-    "uri": "https://testappmahesh.atlassian.net",
-    "username": "testapp.mahesh2",
-    "password": "1qaz2wsx@",
     "issueId":"TP-1"
     }
     ```
@@ -2281,9 +2171,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri":"http://localhost:8080",
-        "username":"admin",
-        "password":"1qaz2wsx@",
         "issueId":"EX-1"
     }
     ```
@@ -2351,9 +2238,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri":"https://connector.atlassian.net",
-        "username":"admin",
-        "password":"1qaz2wsx@",
         "issueId":"TESTPM1-3",
         "name" : "rasika"
     }
@@ -2362,6 +2246,93 @@ The following operations allow you to work with the Jira Connector. Click an ope
     **Sample response**
 
     Returned 204 if the watcher was removed successfully.
+
+??? note "searchJira"
+
+    To get an existing issue, use `searchJira` with the JQL query.
+
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>query</td>
+            <td>The JQL expression to use for finding issues. The query must include an ORDER BY clause. For more information, see the Jira documentation.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>maxResults</td>
+            <td>The maximum number of issues to return, up to 1000 (default is 50).</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>startAt</td>
+            <td>The 0-based index of the first issue to return (default is 0).</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>fields</td>
+            <td>Specifies a comma-separated list of fields to be included in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>validateQuery</td>
+            <td>Specify whether to validate the JQL query.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>expand</td>
+            <td>A comma-separated list of parameters to expand.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+    
+    ```xml
+    <jira.C>
+        <query>{$ctx:query}</query>
+        <maxResults>{$ctx:maxResults}</maxResults>
+        <startAt>{$ctx:startAt}</startAt>
+        <fields>{$ctx:fields}</fields>
+        <validateQuery>{$ctx:validateQuery}</validateQuery>
+        <expand>{$ctx:expand}</expand>
+    </jira.searchJira>
+    ```
+    
+    **Sample request**
+
+    The following is a sample REST/JSON request that can be handled by the `searchJira` operation.
+    
+    ```json
+    {
+        "query":"text~\"issue2\""
+    }
+    ```
+
+    **Sample response**
+
+    Given below is a sample response for the `searchJira` operation.
+
+    ```json
+    {
+        "expand": "names,schema",
+        "startAt": 0,
+        "maxResults": 50,
+        "total": 1,
+        "issues": [
+            {
+                "expand": "",
+                "id": "10001",
+                "self": "http://localhost:8080/jira/rest/api/2/issue/10001",
+                "key": "HSP-1"
+            }
+        ]
+    }
+    ```
+### Project managements
 
 ??? note "getProject"
 
@@ -2381,7 +2352,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>expand</td>
             <td>The parameters to expand.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -2400,9 +2371,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectIdOrKey":"EX"
     }
     ```
@@ -2511,9 +2479,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectIdOrKey":"TEST"
     }
     ```
@@ -2582,9 +2547,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectIdOrKey":"TEST",
         "avatarId":"10412"
     }
@@ -2625,9 +2587,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectIdOrKey":"TEST"
     }
     ```
@@ -2718,9 +2677,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectIdOrKey":"TEST"
     }
     ```
@@ -2787,9 +2743,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectIdOrKey":"TEST"
     }
     ```
@@ -2856,9 +2809,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectIdOrKey":"TEST"
     }
     ```
@@ -2912,9 +2862,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectIdOrKey":"TEST",
         "roleId":"10360"
     }
@@ -2964,12 +2911,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>maxResults</td>
             <td>The maximum number of users to return.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>startAt</td>
             <td>The index of the first user to return.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -2990,10 +2937,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
-        "projectKeys":"TEST",
         "usernameForSearch":"fred"
     }
     ```
@@ -3063,11 +3006,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectIdOrKey":"TEST",
-        "projectKey":"JAF",
         "roleId":"10360",
         "roles":{"user" :["James"]}
     }
@@ -3089,94 +3028,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     }
     ```
 
-??? note "searchJira"
-
-    To get an existing issue, use `searchJira` with the JQL query.
-
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>query</td>
-            <td>The JQL expression to use for finding issues. The query must include an ORDER BY clause. For more information, see the Jira documentation.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>maxResults</td>
-            <td>The maximum number of issues to return, up to 1000 (default is 50).</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>startAt</td>
-            <td>The 0-based index of the first issue to return (default is 0).</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>fields</td>
-            <td>Specifies a comma-separated list of fields to be included in the response.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>validateQuery</td>
-            <td>Specify whether to validate the JQL query.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>expand</td>
-            <td>A comma-separated list of parameters to expand.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-    
-    ```xml
-    <jira.C>
-        <query>{$ctx:query}</query>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <startAt>{$ctx:startAt}</startAt>
-        <fields>{$ctx:fields}</fields>
-        <validateQuery>{$ctx:validateQuery}</validateQuery>
-        <expand>{$ctx:expand}</expand>
-    </jira.searchJira>
-    ```
-    
-    **Sample request**
-
-    The following is a sample REST/JSON request that can be handled by the `searchJira` operation.
-    
-    ```json
-    {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
-        "query":"text~\"issue2\""
-    }
-    ```
-
-    **Sample response**
-
-    Given below is a sample response for the `searchJira` operation.
-
-    ```json
-    {
-        "expand": "names,schema",
-        "startAt": 0,
-        "maxResults": 50,
-        "total": 1,
-        "issues": [
-            {
-                "expand": "",
-                "id": "10001",
-                "self": "http://localhost:8080/jira/rest/api/2/issue/10001",
-                "key": "HSP-1"
-            }
-        ]
-    }
-    ```
+### User management
 
 ??? note "getUser"
 
@@ -3196,7 +3048,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>key</td>
             <td>The user key.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -3215,9 +3067,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "usernameFilter":"fred"
     }
     ```
@@ -3260,12 +3109,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>projectKey/projectId</td>
             <td>Identifies the project for which you want to determine the current user's permissions.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>issueKey/issueId</td>
             <td>Identifies the issue for which you want to determine the current user's permissions.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -3286,9 +3135,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectKey":"TEST"
     }
     ```
@@ -3329,22 +3175,22 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>startAt</td>
             <td>The 0-based index of the first user to return (default is 0).</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>maxResults</td>
             <td>The maximum number of users to return, up to 1000 (default is 50).</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>includeActive</td>
             <td>Whether to return active users (default is true).</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>includeInactive</td>
             <td>Whether to return inactive users (default is false).</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -3366,9 +3212,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "usernameForSearch":"fred"
     }
     ```
@@ -3410,24 +3253,24 @@ The following operations allow you to work with the Jira Connector. Click an ope
             <td>Yes</td>
         </tr>
         <tr>
-            <td>issueKey</td>
-            <td>Identifies the issue that users must have permission to view. This issue will be included in the results.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
             <td>projectKey</td>
             <td>If you want to search for users who can browse a project instead of a specific issue, specify projectKey instead of issueKey.</td>
             <td>Yes</td>
         </tr>
         <tr>
+            <td>issueKey</td>
+            <td>Identifies the issue that users must have permission to view. This issue will be included in the results.</td>
+            <td>No</td>
+        </tr>
+        <tr>
             <td>startAt</td>
             <td>The 0-based index of the first user to return (default is 0).</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>maxResults</td>
             <td>The maximum number of users to return, up to 1000 (default is 50).</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -3449,9 +3292,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "usernameForSearch":"fred",
         "projectKey":"TEST"
     }
@@ -3488,6 +3328,11 @@ The following operations allow you to work with the Jira Connector. Click an ope
             <th>Description</th>
             <th>Required</th>
         </tr>
+         <tr>
+            <td>project</td>
+            <td>Identifies the project in which you are creating a new issue and want to get a list of users who can be assigned to it.</td>
+            <td>Yes</td>
+        </tr>
         <tr>
             <td>usernameForSearch</td>
             <td>The search string used to search the username, name, or email address.</td>
@@ -3496,32 +3341,27 @@ The following operations allow you to work with the Jira Connector. Click an ope
         <tr>
             <td>issueKey</td>
             <td>Identifies the issue that users must have permission to view. This issue will be included in the results.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>project</td>
-            <td>Identifies the project in which you are creating a new issue and want to get a list of users who can be assigned to it.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>issueKey</td>
             <td>Identifies the issue you are editing so that you can get a list of users who can be assigned to it.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>startAt</td>
             <td>The 0-based index of the first user to return (default is 0).</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>maxResults</td>
             <td>The maximum number of users to return, up to 1000 (default is 50).</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>actionDescriptorId</td>
             <td>The id of the workflow action.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
     </table>
 
@@ -3544,9 +3384,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
         "projectKey":"TEST"
     }
     ```
@@ -3575,6 +3412,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
         }
     }
     ```
+### Attachment management
 
 ??? note "getAttachmentById"
 
@@ -3607,9 +3445,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-    "uri": "http://localhost:8080",
-    "username": "admin",
-    "password": "1qaz2wsx@",
     "attachmentId": "10000"
     }
     ```
@@ -3681,9 +3516,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-    "uri": "http://localhost:8080",
-    "username": "admin",
-    "password": "1qaz2wsx@",
     "attachmentUrl": "http://localhost:8080/secure/attachment/10000/31714367_1982813478396639_3541297709187072000_n.jpg",
     "fileType":"image/jpg"
     }
@@ -3693,6 +3525,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
 
     You will get 200 response code with the attached image as a response.
 
+### Component management
 
 ??? note "createComponent"
 
@@ -3755,9 +3588,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri": "http://localhost:8080",
-        "username": "admin",
-        "password": "1qaz2wsx@",
         "name": "testing component1",
         "project": "TESTPM1",
         "description": "test description",
@@ -3844,9 +3674,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri": "http://localhost:8080",
-        "username": "admin",
-        "password": "1qaz2wsx@",
         "componentId": "10000"
     }
     ```
@@ -3958,9 +3785,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri": "http://localhost:8080",
-        "username": "admin",
-        "password": "1qaz2wsx@",
         "componentId": "10000",
         "name": "testing component1",
         "description": "test description",
@@ -4058,9 +3882,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri": "http://localhost:8080",
-        "username": "admin",
-        "password": "1qaz2wsx@",
         "componentId": "10000"
     }
     ```
@@ -4075,6 +3896,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
         "issueCount": 23
     }      
     ```
+
+### Issue Link management
 
 ??? note "createIssueLink"
 
@@ -4180,9 +4003,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```json
     {
-        "uri": "http://localhost:8080",
-        "username": "admin",
-        "password": "1qaz2wsx@",
         "linkId": "10000"
     }
     ```
@@ -4278,40 +4098,3 @@ The following operations allow you to work with the Jira Connector. Click an ope
         }
     }
     ```
-
-### Sample configuration in a scenario
-
-The following is a sample proxy service that illustrates how to connect to the Jira connector and use the getDashboardById operation to get dashboard details. You can use this sample as a template for using other operations in this category.
-
-**Sample Proxy**
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="getDashboardById"
-       transports="https http"
-       startOnLoad="true"
-       trace="disable">
-   <description/>
-   <target>
-      <inSequence>
-         <property name="username" expression="json-eval($.username)"/>
-         <property name="password" expression="json-eval($.password)"/>
-         <property name="uri" expression="json-eval($.uri)"/>
-         <property name="id" expression="json-eval($.id)"/>
-         <jira.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <uri>{$ctx:uri}</uri>
-         </jira.init>
-         <jira.getDashboardById>
-            <id>{$ctx:id}</id>
-         </jira.getDashboardById>
-         <log level="full"/>
-         <respond/>
-      </inSequence>
-      <outSequence/>
-      <faultSequence/>
-   </target>
-</proxy>        
-```
-
-**Note**: For more information on how this works in an actual scenario, see [Jira Connector Example]({{base_path}}/reference/connectors/jira-connector/jira-connector-example).
